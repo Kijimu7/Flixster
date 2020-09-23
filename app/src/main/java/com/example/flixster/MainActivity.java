@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -13,8 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import adapters.MovieAdapter;
 import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        movies = new ArrayList<>();
+
+        // Create the adapter
+        final MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+        //Set the adapter on the recycler view
+        rvMovies.setAdapter(movieAdapter);
+        // Set a Layout Manager on the recycler view
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+
 
         //Create instance of async HTTP client
         AsyncHttpClient client = new AsyncHttpClient();
@@ -43,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results: " + results.toString());
-                    List<Movie> movies = Movie.fromJasonArray(results);
+                    movies.addAll(Movie.fromJasonArray(results));
+                    movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies: " + movies.size());
                 }catch(JSONException e){
                     Log.e(TAG, "Hit json exception", e);
