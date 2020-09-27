@@ -26,7 +26,7 @@
         android:rating="8.5" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals." />
