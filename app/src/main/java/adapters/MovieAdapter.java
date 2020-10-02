@@ -1,5 +1,6 @@
 package adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -93,18 +95,25 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         }
 
             Glide.with(context).load(imageUrl).into(ivPoster);
+//            tvTitle = findViewById(R.id.tvTitle);
             //setClickListener
             //1. Register click listener on the whole row
               container.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
+                      //intent for transition
+
+
+
            //2. Navigate to a new activity on tap
                Intent i = new Intent(context, DetailActivity2.class);
                //pass data
+           i.putExtra("movie", Parcels.wrap(movie));
 
-               i.putExtra("movie", Parcels.wrap(movie));
-               context.startActivity(i);
 
+                      ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context,(ImageView)ivPoster,
+                    "image_fade");
+                      context.startActivity(i, options.toBundle());
 
 
                     //Toast -> pop up message

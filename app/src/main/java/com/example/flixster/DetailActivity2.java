@@ -1,5 +1,6 @@
 package com.example.flixster;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -21,6 +22,8 @@ import okhttp3.Headers;
 
 public class DetailActivity2 extends YouTubeBaseActivity {
 
+
+
     private static final String YOUTUBE_API_KEY = "AIzaSyA2ojyUdI5WCs_DoJycQf8qiU631i65L98";
     public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     //1 set id
@@ -30,6 +33,7 @@ public class DetailActivity2 extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;
 
 
+    @SuppressLint("DefaultLocale")
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
