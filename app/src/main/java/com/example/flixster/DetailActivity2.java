@@ -31,6 +31,8 @@ public class DetailActivity2 extends YouTubeBaseActivity {
     TextView tvOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
+    boolean numStars;
+
 
 
     @SuppressLint("DefaultLocale")
@@ -49,6 +51,9 @@ public class DetailActivity2 extends YouTubeBaseActivity {
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         ratingBar.setRating((float)movie.getRating());
+
+        if(movie.getRating() > 7)
+            numStars = true;
 
         //Create instance of async HTTP client
         AsyncHttpClient client = new AsyncHttpClient();
@@ -81,7 +86,13 @@ public class DetailActivity2 extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity", "onInitializationSuccess");
-                youTubePlayer.cueVideo(youtubeKey);
+//                youTubePlayer.cueVideo(youtubeKey);
+
+                if (numStars)
+                    youTubePlayer.loadVideo(youtubeKey);
+                 else {
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
             }
 
             @Override
