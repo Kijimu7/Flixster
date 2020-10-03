@@ -1,7 +1,7 @@
 # Flix
 Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-6 hour
+
 
 ## Flix Part 2
 
@@ -31,7 +31,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 ### Notes
 
-Describe any challenges encountered while building the app.
+I encounterd problems implementing a shared element transition. The intent code was not correct but TA guided me to correct way to implement this feature. I was able to added fade in/out animation at the end!
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
