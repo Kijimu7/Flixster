@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="30dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -20,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="30dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="@android:color/primary_text_dark_nodisable"
         android:textSize="24sp"
         tools:text="Mulan" />
 
@@ -33,5 +35,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivPoster"
-        android:text="When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential." />
+        android:text="When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential."
+        android:textColor="@android:color/tab_indicator_text" />
 </RelativeLayout>
