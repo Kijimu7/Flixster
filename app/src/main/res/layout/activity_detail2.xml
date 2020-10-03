@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="10"
-        android:rating="8.5" />
+        android:rating="7" />
 
     <TextView
         android:id="@+id/tvOverview"
